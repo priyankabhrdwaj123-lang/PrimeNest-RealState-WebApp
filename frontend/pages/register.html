@@ -1,0 +1,238 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Register | PrimeNest</title>
+
+    <link rel="stylesheet"
+          href="../css/auth.css">
+
+</head>
+
+<body class="auth-body">
+
+    <main class="auth-page">
+
+        <div class="auth-card">
+
+            <!-- LOGO -->
+
+            <div class="auth-logo">
+
+                <a href="index.html">
+                    PrimeNest<span>X</span>
+                </a>
+
+            </div>
+
+
+            <!-- HEADING -->
+
+            <div class="auth-heading">
+
+                <h1>Create Your Account</h1>
+
+                <p>
+                    Join PrimeNest and start your property journey.
+                </p>
+
+            </div>
+
+
+            <!-- MESSAGE -->
+
+            <div id="registerMessage"
+                 class="auth-message">
+            </div>
+
+
+            <!-- FORM -->
+
+            <form id="registerForm"
+                  class="auth-form">
+
+                <!-- NAME -->
+
+                <div class="auth-field">
+
+                    <label for="name">
+                        Full Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="name"
+                        name="name"
+                        placeholder="Enter your full name"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- EMAIL -->
+
+                <div class="auth-field">
+
+                    <label for="email">
+                        Email Address
+                    </label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="Enter your email"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- PASSWORD -->
+
+                <div class="auth-field">
+
+                    <label for="password">
+                        Password
+                    </label>
+
+                    <input
+                        type="password"
+                        id="password"
+                        name="password"
+                        placeholder="Create a password"
+                        required
+                    >
+
+                    <span class="password-hint">
+                        Password must contain at least 6 characters.
+                    </span>
+
+                </div>
+
+
+                <!-- CONFIRM PASSWORD -->
+
+                <div class="auth-field">
+
+                    <label for="confirmPassword">
+                        Confirm Password
+                    </label>
+
+                    <input
+                        type="password"
+                        id="confirmPassword"
+                        name="confirmPassword"
+                        placeholder="Confirm your password"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- ROLE -->
+
+                <div class="auth-field">
+
+                    <label for="role">
+                        I am a
+                    </label>
+
+                    <select id="role"
+                            name="role"
+                            required>
+
+                        <option value="">
+                            Select your role
+                        </option>
+
+                        <option value="customer">
+                            Customer / Buyer
+                        </option>
+
+                        <option value="owner">
+                            Property Owner / Seller
+                        </option>
+
+                        <option value="dealer">
+                            Property Dealer / Agent
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- TERMS -->
+
+                <div class="auth-terms">
+
+                    <input
+                        type="checkbox"
+                        id="terms"
+                        required
+                    >
+
+                    <label for="terms">
+                        I agree to the PrimeNest
+                        <a href="#">Terms & Conditions</a>
+                        and
+                        <a href="#">Privacy Policy</a>.
+                    </label>
+
+                </div>
+
+
+                <!-- SUBMIT -->
+
+                <button
+                    type="submit"
+                    class="auth-btn">
+
+                    Create Account
+
+                </button>
+
+            </form>
+
+
+            <!-- LOGIN LINK -->
+
+            <div class="auth-switch">
+
+                Already have an account?
+
+                <a href="login.html">
+                    Login
+                </a>
+
+            </div>
+
+
+            <!-- HOME -->
+
+            <a href="index.html"
+               class="auth-back">
+
+                ← Back to PrimeNest
+
+            </a>
+
+        </div>
+
+    </main>
+
+
+    <script src="../js/auth.js"></script>
+
+</body>
+
+</html>

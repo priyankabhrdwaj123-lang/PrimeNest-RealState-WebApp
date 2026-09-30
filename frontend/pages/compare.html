@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Compare Properties | PrimeNest</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+
+</head>
+
+
+<body>
+
+
+    <div id="navbar"></div>
+
+    <section class="listing-hero">
+
+        <div class="container listing-hero-content">
+
+            <span class="section-label">
+                PROPERTY COMPARISON
+            </span>
+
+            <h1>
+                Compare <span>Properties</span>
+            </h1>
+
+            <p>
+                Compare price, area, bedrooms,
+                bathrooms and location.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <section class="listing-section">
+
+        <div class="container">
+
+            <div id="compareContainer"></div>
+
+        </div>
+
+    </section>
+
+
+    <script src="../js/data.js"></script>
+    <script src="../js/app.js"></script>
+    <script src="../js/components.js"></script>
+
+
+    <script>
+
+        document.addEventListener("DOMContentLoaded", function () {
+
+            const container =
+                document.getElementById("compareContainer");
+
+            const compareIds =
+                getCompare();
+
+            const compareProperties =
+                properties.filter(property =>
+                    compareIds.includes(property.id)
+                );
+
+
+            if (!compareProperties.length) {
+
+                container.innerHTML = `
+
+            <div class="empty-state">
+
+                <div class="empty-icon">
+                    ⚖️
+                </div>
+
+                <h3>
+                    No Properties to Compare
+                </h3>
+
+                <p>
+                    Go to the properties page and
+                    select properties to compare.
+                </p>
+
+                <a
+                    href="properties.html"
+                    class="btn btn-primary"
+                >
+                    Browse Properties
+                </a>
+
+            </div>
+
+        `;
+
+                return;
+            }
+
+
+            let html = `
+
+        <div style="
+            overflow-x:auto;
+            background:#ffffff;
+            border-radius:20px;
+            border:1px solid #e5e5df;
+        ">
+
+            <table style="
+                width:100%;
+                min-width:800px;
+                border-collapse:collapse;
+            ">
+
+                <thead>
+
+                    <tr>
+
+                        <th style="padding:20px;text-align:left;">
+                            Feature
+                        </th>
+    `;
+
+
+            compareProperties.forEach(property => {
+
+                html += `
+
+            <th style="
+                padding:20px;
+                text-align:left;
+                color:#1f4f46;
+            ">
+                ${property.title}
+            </th>
+
+        `;
+
+            });
+
+
+            html += `
+                    </tr>
+                </thead>
+
+                <tbody>
+    `;
+
+
+            const rows = [
+
+                ["Location", "location"],
+
+                ["Type", "type"],
+
+                ["Status", "status"],
+
+                ["Price", "priceText"],
+
+                ["Bedrooms", "bedrooms"],
+
+                ["Bathrooms", "bathrooms"],
+
+                ["Area", "area"]
+
+            ];
+
+
+            rows.forEach(row => {
+
+                html += `
+
+            <tr>
+
+                <td style="
+                    padding:18px;
+                    font-weight:700;
+                    border-top:1px solid #eeeeea;
+                ">
+                    ${row[0]}
+                </td>
+        `;
+
+
+                compareProperties.forEach(property => {
+
+                    html += `
+
+                <td style="
+                    padding:18px;
+                    border-top:1px solid #eeeeea;
+                    color:#6d7773;
+                ">
+                    ${row[1] === "area"
+                            ? property[row[1]] + " sq.ft"
+                            : property[row[1]]
+                        }
+                </td>
+
+            `;
+
+                });
+
+
+                html += `
+            </tr>
+        `;
+
+            });
+
+
+            html += `
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    `;
+
+
+            container.innerHTML = html;
+
+        });
+
+    </script>
+
+</body>
+
+</html>

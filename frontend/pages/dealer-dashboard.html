@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Dealer Dashboard | PrimeNest</title>
+
+    <link rel="stylesheet" href="../css/dashboard.css">
+
+</head>
+
+<body>
+
+    <div class="dashboard">
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+
+            <div class="sidebar-logo">
+
+                <a href="index.html">
+                    PrimeNest<span>X</span>
+                </a>
+
+            </div>
+
+
+            <ul class="sidebar-menu">
+
+                <li>
+                    <a href="#" class="active">
+                        <span class="menu-icon">📊</span>
+                        Dashboard
+                    </a>
+                </li>
+
+                <li>
+                    <a href="properties.html">
+                        <span class="menu-icon">🏠</span>
+                        Available Properties
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        <span class="menu-icon">🏡</span>
+                        Owner Properties
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        <span class="menu-icon">👥</span>
+                        Customer Leads
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        <span class="menu-icon">🔍</span>
+                        Customer Requirements
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        <span class="menu-icon">✉</span>
+                        Enquiries
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        <span class="menu-icon">📅</span>
+                        Site Visits
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        <span class="menu-icon">🤝</span>
+                        Deals
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        <span class="menu-icon">⏰</span>
+                        Follow-ups
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        <span class="menu-icon">👤</span>
+                        Profile
+                    </a>
+                </li>
+
+            </ul>
+
+
+            <div class="sidebar-bottom">
+
+                <button type="button" onclick="logoutUser()">
+                    Logout
+                </button>
+            </div>
+
+        </aside>
+
+
+        <!-- MAIN -->
+        <main class="dashboard-main">
+
+
+            <!-- TOPBAR -->
+            <header class="dashboard-topbar">
+
+                <div class="topbar-left">
+
+                    <button class="dashboard-menu-toggle">
+                        ☰
+                    </button>
+
+                    <div>
+
+                        <h1>Dealer Dashboard</h1>
+
+                        <p>
+                            Connect owners with the right customers
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="topbar-right">
+
+                    <button class="notification-btn">
+                        🔔
+                    </button>
+
+
+                    <div class="user-profile">
+
+                        <div class="user-avatar">
+                            D
+                        </div>
+
+                        <div class="user-info">
+
+                            <strong>Property Dealer</strong>
+
+                            <span>Dealer / Agent</span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </header>
+
+
+            <!-- CONTENT -->
+            <section class="dashboard-content">
+
+
+                <!-- WELCOME -->
+                <div class="welcome-banner">
+
+                    <div class="welcome-text">
+
+                        <h2>Welcome, Dealer 👋</h2>
+
+                        <p>
+                            Manage property listings, customer leads
+                            and owner relationships from one place.
+                        </p>
+
+                    </div>
+
+                    <div class="welcome-icon">
+                        🤝
+                    </div>
+
+                </div>
+
+
+                <!-- STATS -->
+                <div class="stats-grid">
+
+
+                    <div class="stat-card">
+
+                        <div class="stat-top">
+
+                            <span class="stat-label">
+                                Available Properties
+                            </span>
+
+                            <div class="stat-icon">
+                                🏠
+                            </div>
+
+                        </div>
+
+                        <h3>24</h3>
+
+                        <span class="stat-change">
+                            Properties available
+                        </span>
+
+                    </div>
+
+
+                    <div class="stat-card">
+
+                        <div class="stat-top">
+
+                            <span class="stat-label">
+                                Customer Leads
+                            </span>
+
+                            <div class="stat-icon">
+                                👥
+                            </div>
+
+                        </div>
+
+                        <h3>15</h3>
+
+                        <span class="stat-change">
+                            Active leads
+                        </span>
+
+                    </div>
+
+
+                    <div class="stat-card">
+
+                        <div class="stat-top">
+
+                            <span class="stat-label">
+                                Site Visits
+                            </span>
+
+                            <div class="stat-icon">
+                                📅
+                            </div>
+
+                        </div>
+
+                        <h3>8</h3>
+
+                        <span class="stat-change">
+                            Scheduled visits
+                        </span>
+
+                    </div>
+
+
+                    <div class="stat-card">
+
+                        <div class="stat-top">
+
+                            <span class="stat-label">
+                                Active Deals
+                            </span>
+
+                            <div class="stat-icon">
+                                🤝
+                            </div>
+
+                        </div>
+
+                        <h3>5</h3>
+
+                        <span class="stat-change">
+                            Deals in progress
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- QUICK ACTIONS -->
+                <div class="dashboard-section">
+
+                    <div class="section-header">
+
+                        <h2>Dealer Actions</h2>
+
+                    </div>
+
+
+                    <div class="dashboard-card">
+
+                        <div class="quick-actions">
+
+
+                            <a href="properties.html" class="quick-action">
+
+                                <div class="quick-action-icon">
+                                    🏠
+                                </div>
+
+                                <div>
+
+                                    <strong>
+                                        Available Properties
+                                    </strong>
+
+                                    <span>
+                                        Find properties for customers
+                                    </span>
+
+                                </div>
+
+                            </a>
+
+
+                            <a href="#" class="quick-action">
+
+                                <div class="quick-action-icon">
+                                    👥
+                                </div>
+
+                                <div>
+
+                                    <strong>
+                                        Customer Leads
+                                    </strong>
+
+                                    <span>
+                                        Manage your leads
+                                    </span>
+
+                                </div>
+
+                            </a>
+
+
+                            <a href="#" class="quick-action">
+
+                                <div class="quick-action-icon">
+                                    🔍
+                                </div>
+
+                                <div>
+
+                                    <strong>
+                                        Customer Requirements
+                                    </strong>
+
+                                    <span>
+                                        Find matching properties
+                                    </span>
+
+                                </div>
+
+                            </a>
+
+
+                            <a href="#" class="quick-action">
+
+                                <div class="quick-action-icon">
+                                    🏡
+                                </div>
+
+                                <div>
+
+                                    <strong>
+                                        Owner Properties
+                                    </strong>
+
+                                    <span>
+                                        Manage owner listings
+                                    </span>
+
+                                </div>
+
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- CUSTOMER LEADS -->
+                <div class="dashboard-section">
+
+                    <div class="section-header">
+
+                        <h2>Recent Customer Leads</h2>
+
+                        <a href="#">
+                            View All →
+                        </a>
+
+                    </div>
+
+
+                    <div class="dashboard-card">
+
+                        <div class="activity-list">
+
+
+                            <div class="activity-item">
+
+                                <div class="activity-icon">
+                                    👤
+                                </div>
+
+                                <div>
+
+                                    <strong>
+                                        Rahul is looking for a 3BHK
+                                    </strong>
+
+                                    <p>
+                                        Gurgaon · Budget ₹1.5 Crore
+                                        · 2 hours ago
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="activity-item">
+
+                                <div class="activity-icon">
+                                    👤
+                                </div>
+
+                                <div>
+
+                                    <strong>
+                                        Anjali wants a rental property
+                                    </strong>
+
+                                    <p>
+                                        Noida · Budget ₹40,000/month
+                                        · 5 hours ago
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="activity-item">
+
+                                <div class="activity-icon">
+                                    👤
+                                </div>
+
+                                <div>
+
+                                    <strong>
+                                        Amit is looking for a Villa
+                                    </strong>
+
+                                    <p>
+                                        Delhi · Budget ₹2 Crore
+                                        · Yesterday
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- OWNER PROPERTIES -->
+                <div class="dashboard-section">
+
+                    <div class="section-header">
+
+                        <h2>Owner Properties</h2>
+
+                        <a href="#">
+                            View All →
+                        </a>
+
+                    </div>
+
+
+                    <div class="dashboard-card">
+
+                        <div class="property-mini">
+
+                            <img src="../images/property-2.jpg" alt="Luxury Garden Villa">
+
+                            <div class="property-mini-info">
+
+                                <h4>
+                                    Luxury Garden Villa
+                                </h4>
+
+                                <p>
+                                    📍 Gurgaon · Owner: Rajesh
+                                </p>
+
+                                <span class="property-mini-price">
+                                    ₹1.65 Crore
+                                </span>
+
+                            </div>
+
+                            <span class="status active">
+                                Available
+                            </span>
+
+                        </div>
+
+
+                        <div class="property-mini">
+
+                            <img src="../images/property-1.jpg" alt="Modern City Apartment">
+
+                            <div class="property-mini-info">
+
+                                <h4>
+                                    Modern City Apartment
+                                </h4>
+
+                                <p>
+                                    📍 Delhi · Owner: Neha
+                                </p>
+
+                                <span class="property-mini-price">
+                                    ₹85 Lakh
+                                </span>
+
+                            </div>
+
+                            <span class="status active">
+                                Available
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+    <script src="../js/auth.js"></script>
+
+    <script>
+
+        document.addEventListener(
+            "DOMContentLoaded",
+            function () {
+
+                const user =
+                    requireRole("dealer");
+
+                if (!user) {
+                    return;
+                }
+
+                console.log(
+                    "Logged in dealer:",
+                    user.name
+                );
+
+            }
+        );
+
+    </script>
+
+</body>
+
+</html>

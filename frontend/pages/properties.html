@@ -1,0 +1,1065 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Properties | PrimeNest</title>
+
+
+    <!-- Google Fonts -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
+        rel="stylesheet">
+
+
+    <!-- CSS -->
+
+    <link rel="stylesheet" href="../css/style.css">
+
+</head>
+
+
+<body>
+
+
+    <div id="navbar"></div>
+
+
+
+    <!-- =====================================================
+     HERO
+===================================================== -->
+
+    <section class="listing-hero">
+
+        <div class="container">
+
+            <div class="listing-hero-content">
+
+                <span class="section-label">
+                    PRIMENEST PROPERTIES
+                </span>
+
+
+                <h1>
+
+                    Find a place you'll
+
+                    <span>
+                        love to live.
+                    </span>
+
+                </h1>
+
+
+                <p>
+                    Explore apartments, villas, houses and
+                    commercial properties across Delhi NCR.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+     PROPERTY SECTION
+===================================================== -->
+
+    <section class="listing-section">
+
+        <div class="container">
+
+
+            <!-- =================================================
+             FILTER BOX
+        ================================================== -->
+
+            <div class="property-filter-box">
+
+
+                <div class="filter-header">
+
+                    <div>
+
+                        <span class="results-label">
+                            SEARCH
+                        </span>
+
+                        <h3>
+                            Find Your Property
+                        </h3>
+
+                    </div>
+
+
+                    <button type="button" id="clearFilters" class="clear-filter">
+                        Clear All
+                    </button>
+
+                </div>
+
+
+
+                <div class="property-filter-grid">
+
+
+                    <!-- SEARCH -->
+
+                    <div class="filter-group">
+
+                        <label for="propertySearch">
+                            Search
+                        </label>
+
+                        <input type="text" id="propertySearch" placeholder="Property, city...">
+
+                    </div>
+
+
+
+                    <!-- LOCATION -->
+
+                    <div class="filter-group">
+
+                        <label for="locationFilter">
+                            Location
+                        </label>
+
+                        <select id="locationFilter">
+
+                            <option value="">
+                                All Locations
+                            </option>
+
+                            <option value="Delhi">
+                                Delhi
+                            </option>
+
+                            <option value="Gurgaon">
+                                Gurgaon
+                            </option>
+
+                            <option value="Noida">
+                                Noida
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+
+                    <!-- TYPE -->
+
+                    <div class="filter-group">
+
+                        <label for="typeFilter">
+                            Property Type
+                        </label>
+
+                        <select id="typeFilter">
+
+                            <option value="">
+                                All Types
+                            </option>
+
+                            <option value="Apartment">
+                                Apartment
+                            </option>
+
+                            <option value="Villa">
+                                Villa
+                            </option>
+
+                            <option value="House">
+                                House
+                            </option>
+
+                            <option value="Commercial">
+                                Commercial
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+
+                    <!-- STATUS -->
+
+                    <div class="filter-group">
+
+                        <label for="statusFilter">
+                            Status
+                        </label>
+
+                        <select id="statusFilter">
+
+                            <option value="">
+                                All
+                            </option>
+
+                            <option value="For Sale">
+                                For Sale
+                            </option>
+
+                            <option value="For Rent">
+                                For Rent
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+
+                    <!-- BEDROOMS -->
+
+                    <div class="filter-group">
+
+                        <label for="bedroomFilter">
+                            Bedrooms
+                        </label>
+
+                        <select id="bedroomFilter">
+
+                            <option value="">
+                                Any
+                            </option>
+
+                            <option value="1">
+                                1+
+                            </option>
+
+                            <option value="2">
+                                2+
+                            </option>
+
+                            <option value="3">
+                                3+
+                            </option>
+
+                            <option value="4">
+                                4+
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+
+                    <!-- BUDGET -->
+
+                    <div class="filter-group">
+
+                        <label for="budgetFilter">
+                            Budget
+                        </label>
+
+                        <select id="budgetFilter">
+
+                            <option value="">
+                                Any Budget
+                            </option>
+
+                            <option value="5000000">
+                                Under ₹50 Lakh
+                            </option>
+
+                            <option value="10000000">
+                                Under ₹1 Crore
+                            </option>
+
+                            <option value="20000000">
+                                Under ₹2 Crore
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                </div>
+
+
+                <!-- APPLY BUTTON -->
+
+                <div class="filter-actions">
+
+                    <button type="button" id="applyFilters" class="btn btn-primary filter-btn">
+                        Apply Filters
+                    </button>
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- =================================================
+             RESULTS
+        ================================================== -->
+
+            <div class="listing-results">
+
+
+                <div class="results-topbar">
+
+
+                    <div>
+
+                        <span class="results-label">
+                            AVAILABLE PROPERTIES
+                        </span>
+
+
+                        <h2>
+                            Properties
+                        </h2>
+
+
+                        <p id="resultCount">
+                            Showing properties
+                        </p>
+
+                    </div>
+
+
+
+                    <!-- SORT -->
+
+                    <div class="sort-box">
+
+                        <label for="sortFilter">
+                            Sort by
+                        </label>
+
+
+                        <select id="sortFilter">
+
+                            <option value="default">
+                                Recommended
+                            </option>
+
+                            <option value="price-low">
+                                Price: Low to High
+                            </option>
+
+                            <option value="price-high">
+                                Price: High to Low
+                            </option>
+
+                            <option value="area-high">
+                                Largest Area
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- PROPERTY GRID -->
+
+                <div id="propertyGrid" class="property-grid"></div>
+
+
+
+                <!-- EMPTY STATE -->
+
+                <div id="emptyState" class="empty-state" style="display:none;">
+
+                    <div class="empty-icon">
+                        🏠
+                    </div>
+
+
+                    <h3>
+                        No properties found
+                    </h3>
+
+
+                    <p>
+                        Try changing your filters or search terms.
+                    </p>
+
+
+                    <button type="button" id="emptyClearFilters" class="btn btn-primary">
+                        Clear Filters
+                    </button>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+     CTA
+===================================================== -->
+
+    <section class="cta-section">
+
+        <div class="container">
+
+            <div class="cta-box">
+
+
+                <div>
+
+                    <span class="section-label">
+                        NEED HELP?
+                    </span>
+
+
+                    <h2>
+                        Can't find the right property?
+                    </h2>
+
+
+                    <p>
+                        Tell us what you're looking for and
+                        we'll help you find suitable options.
+                    </p>
+
+                </div>
+
+
+                <a href="index.html#contact" class="btn btn-light">
+                    Talk to an Agent
+                </a>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+     FOOTER
+===================================================== -->
+
+    <footer class="footer">
+
+        <div class="container">
+
+
+            <div class="footer-grid">
+
+
+                <div class="footer-brand">
+
+                    <a href="index.html" class="logo">
+                        <span>Prime</span>NestX
+                    </a>
+
+
+                    <p>
+                        Discover better places to live,
+                        work and invest across Delhi NCR.
+                    </p>
+
+                </div>
+
+
+
+                <div class="footer-column">
+
+                    <h4>
+                        Explore
+                    </h4>
+
+
+                    <a href="properties.html">
+                        Properties
+                    </a>
+
+
+                    <a href="index.html#locations">
+                        Locations
+                    </a>
+
+
+                    <a href="favourites.html">
+                        Favorites
+                    </a>
+
+                </div>
+
+
+
+                <div class="footer-column">
+
+                    <h4>
+                        Company
+                    </h4>
+
+
+                    <a href="index.html#about">
+                        About
+                    </a>
+
+
+                    <a href="index.html#contact">
+                        Contact
+                    </a>
+
+                </div>
+
+
+
+                <div class="footer-column">
+
+                    <h4>
+                        Tools
+                    </h4>
+
+
+                    <a href="calculator.html">
+                        EMI Calculator
+                    </a>
+
+
+                    <a href="compare.html">
+                        Compare
+                    </a>
+
+                </div>
+
+
+            </div>
+
+
+
+            <div class="footer-bottom">
+
+                <p>
+                    © 2026 PrimeNest. All rights reserved.
+                </p>
+
+
+                <p>
+                    Real Estate Platform
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </footer>
+
+
+
+    <!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
+    <script src="../js/data.js"></script>
+    <script src="../js/app.js"></script>
+    <script src="../js/components.js"></script>
+
+
+    <script>
+
+        document.addEventListener(
+            "DOMContentLoaded",
+            function () {
+
+
+                /* ---------------------------------------------
+                   ELEMENTS
+                --------------------------------------------- */
+
+                const propertyGrid =
+                    document.getElementById("propertyGrid");
+
+
+                const searchInput =
+                    document.getElementById("propertySearch");
+
+
+                const locationFilter =
+                    document.getElementById("locationFilter");
+
+
+                const typeFilter =
+                    document.getElementById("typeFilter");
+
+
+                const statusFilter =
+                    document.getElementById("statusFilter");
+
+
+                const bedroomFilter =
+                    document.getElementById("bedroomFilter");
+
+
+                const budgetFilter =
+                    document.getElementById("budgetFilter");
+
+
+                const sortFilter =
+                    document.getElementById("sortFilter");
+
+
+                const resultCount =
+                    document.getElementById("resultCount");
+
+
+                const emptyState =
+                    document.getElementById("emptyState");
+
+
+                const applyFilters =
+                    document.getElementById("applyFilters");
+
+
+                const clearFilters =
+                    document.getElementById("clearFilters");
+
+
+                const emptyClearFilters =
+                    document.getElementById("emptyClearFilters");
+
+
+
+                /* ---------------------------------------------
+                   FILTER FUNCTION
+                --------------------------------------------- */
+
+                function renderResults() {
+
+
+                    let results =
+                        [...properties];
+
+
+
+                    /* SEARCH */
+
+                    const search =
+                        searchInput.value
+                            .trim()
+                            .toLowerCase();
+
+
+                    if (search !== "") {
+
+                        results =
+                            results.filter(
+                                function (property) {
+
+                                    return (
+
+                                        property.title
+                                            .toLowerCase()
+                                            .includes(search)
+
+                                        ||
+
+                                        property.location
+                                            .toLowerCase()
+                                            .includes(search)
+
+                                        ||
+
+                                        property.type
+                                            .toLowerCase()
+                                            .includes(search)
+
+                                    );
+
+                                }
+                            );
+
+                    }
+
+
+
+                    /* LOCATION */
+
+                    if (locationFilter.value !== "") {
+
+                        results =
+                            results.filter(
+                                function (property) {
+
+                                    return (
+                                        property.location ===
+                                        locationFilter.value
+                                    );
+
+                                }
+                            );
+
+                    }
+
+
+
+                    /* TYPE */
+
+                    if (typeFilter.value !== "") {
+
+                        results =
+                            results.filter(
+                                function (property) {
+
+                                    return (
+                                        property.type ===
+                                        typeFilter.value
+                                    );
+
+                                }
+                            );
+
+                    }
+
+
+
+                    /* STATUS */
+
+                    if (statusFilter.value !== "") {
+
+                        results =
+                            results.filter(
+                                function (property) {
+
+                                    return (
+                                        property.status ===
+                                        statusFilter.value
+                                    );
+
+                                }
+                            );
+
+                    }
+
+
+
+                    /* BEDROOMS */
+
+                    if (bedroomFilter.value !== "") {
+
+                        const bedrooms =
+                            Number(
+                                bedroomFilter.value
+                            );
+
+
+                        results =
+                            results.filter(
+                                function (property) {
+
+                                    return (
+                                        property.bedrooms >=
+                                        bedrooms
+                                    );
+
+                                }
+                            );
+
+                    }
+
+
+
+                    /* BUDGET */
+
+                    if (budgetFilter.value !== "") {
+
+                        const budget =
+                            Number(
+                                budgetFilter.value
+                            );
+
+
+                        results =
+                            results.filter(
+                                function (property) {
+
+                                    /*
+                                     * Rent properties are ignored
+                                     * in sale budget filtering.
+                                     */
+
+                                    if (
+                                        property.status ===
+                                        "For Rent"
+                                    ) {
+                                        return true;
+                                    }
+
+
+                                    return (
+                                        property.price <=
+                                        budget
+                                    );
+
+                                }
+                            );
+
+                    }
+
+
+
+                    /* SORT */
+
+                    if (
+                        sortFilter.value ===
+                        "price-low"
+                    ) {
+
+                        results.sort(
+                            function (a, b) {
+
+                                return (
+                                    a.price -
+                                    b.price
+                                );
+
+                            }
+                        );
+
+                    }
+
+
+                    if (
+                        sortFilter.value ===
+                        "price-high"
+                    ) {
+
+                        results.sort(
+                            function (a, b) {
+
+                                return (
+                                    b.price -
+                                    a.price
+                                );
+
+                            }
+                        );
+
+                    }
+
+
+                    if (
+                        sortFilter.value ===
+                        "area-high"
+                    ) {
+
+                        results.sort(
+                            function (a, b) {
+
+                                return (
+                                    b.area -
+                                    a.area
+                                );
+
+                            }
+                        );
+
+                    }
+
+
+
+                    /* RESULT COUNT */
+
+                    resultCount.textContent =
+                        `${results.length} properties found`;
+
+
+
+                    /* EMPTY */
+
+                    if (results.length === 0) {
+
+                        propertyGrid.innerHTML = "";
+
+                        emptyState.style.display =
+                            "block";
+
+                        return;
+
+                    }
+
+
+                    emptyState.style.display =
+                        "none";
+
+
+
+                    /* CARDS */
+
+                    propertyGrid.innerHTML =
+                        results
+                            .map(
+                                function (property) {
+
+                                    return propertyCard(
+                                        property
+                                    );
+
+                                }
+                            )
+                            .join("");
+
+
+                    /* BUTTONS */
+
+                    if (
+                        typeof bindDynamicButtons ===
+                        "function"
+                    ) {
+
+                        bindDynamicButtons();
+
+                    }
+
+                }
+
+
+
+                /* ---------------------------------------------
+                   APPLY FILTER
+                --------------------------------------------- */
+
+                applyFilters.addEventListener(
+                    "click",
+                    function () {
+
+                        renderResults();
+
+                    }
+                );
+
+
+
+                /* ---------------------------------------------
+                   CLEAR FILTERS
+                --------------------------------------------- */
+
+                function resetFilters() {
+
+                    searchInput.value = "";
+
+                    locationFilter.value = "";
+
+                    typeFilter.value = "";
+
+                    statusFilter.value = "";
+
+                    bedroomFilter.value = "";
+
+                    budgetFilter.value = "";
+
+                    sortFilter.value = "default";
+
+
+                    renderResults();
+
+                }
+
+
+
+                clearFilters.addEventListener(
+                    "click",
+                    resetFilters
+                );
+
+
+                emptyClearFilters.addEventListener(
+                    "click",
+                    resetFilters
+                );
+
+
+
+                /* ---------------------------------------------
+                   SORT
+                --------------------------------------------- */
+
+                sortFilter.addEventListener(
+                    "change",
+                    renderResults
+                );
+
+
+
+                /* ---------------------------------------------
+                   URL FILTER
+                   Example:
+                   properties.html?location=Delhi
+                --------------------------------------------- */
+
+                const params =
+                    new URLSearchParams(
+                        window.location.search
+                    );
+
+
+                const locationParam =
+                    params.get("location");
+
+
+                const typeParam =
+                    params.get("type");
+
+
+                if (locationParam) {
+
+                    locationFilter.value =
+                        locationParam;
+
+                }
+
+
+                if (typeParam) {
+
+                    typeFilter.value =
+                        typeParam;
+
+                }
+
+
+
+                /* ---------------------------------------------
+                   INITIAL LOAD
+                --------------------------------------------- */
+
+                renderResults();
+
+            }
+        );
+
+    </script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>EMI Calculator | PrimeNest</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+
+</head>
+
+
+<body>
+
+
+    <div id="navbar"></div>
+
+
+    <section class="listing-hero">
+
+        <div class="container listing-hero-content">
+
+            <span class="section-label">
+                FINANCIAL TOOL
+            </span>
+
+            <h1>
+                Home Loan <span>Calculator</span>
+            </h1>
+
+            <p>
+                Estimate your monthly home loan EMI
+                before making a property decision.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <section class="listing-section">
+
+        <div class="container">
+
+            <div style="
+            max-width:700px;
+            margin:auto;
+            background:#ffffff;
+            padding:40px;
+            border-radius:20px;
+            border:1px solid #e5e5df;
+        ">
+
+                <div class="filter-group">
+
+                    <label>
+                        Loan Amount
+                    </label>
+
+                    <input type="number" id="loanAmount" placeholder="5000000">
+
+                </div>
+
+
+                <div class="filter-group">
+
+                    <label>
+                        Interest Rate (% per year)
+                    </label>
+
+                    <input type="number" id="interestRate" placeholder="8.5" step="0.1">
+
+                </div>
+
+
+                <div class="filter-group">
+
+                    <label>
+                        Loan Tenure (Years)
+                    </label>
+
+                    <input type="number" id="loanTenure" placeholder="20">
+
+                </div>
+
+
+                <button id="calculateBtn" class="btn btn-primary" type="button">
+                    Calculate EMI
+                </button>
+
+
+                <div id="emiResult" style="
+                    margin-top:30px;
+                    padding:25px;
+                    border-radius:15px;
+                    background:#f7f6f2;
+                    display:none;
+                ">
+
+                    <p>
+                        Estimated Monthly EMI
+                    </p>
+
+                    <h2 id="emiAmount" style="color:#1f4f46;">
+                        ₹0
+                    </h2>
+
+                    <p id="totalPayment"></p>
+
+                    <p id="totalInterest"></p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <script src="../js/data.js"></script>
+    <script src="../js/app.js"></script>
+    <script src="../js/components.js"></script>
+
+
+    <script>
+
+        document
+            .getElementById("calculateBtn")
+            .addEventListener("click", function () {
+
+                const principal =
+                    Number(
+                        document.getElementById("loanAmount").value
+                    );
+
+                const annualRate =
+                    Number(
+                        document.getElementById("interestRate").value
+                    );
+
+                const years =
+                    Number(
+                        document.getElementById("loanTenure").value
+                    );
+
+
+                if (!principal || !annualRate || !years) {
+
+                    alert("Please enter all values.");
+
+                    return;
+
+                }
+
+
+                const monthlyRate =
+                    annualRate / 12 / 100;
+
+                const months =
+                    years * 12;
+
+
+                const emi =
+                    principal *
+                    monthlyRate *
+                    Math.pow(
+                        1 + monthlyRate,
+                        months
+                    ) /
+                    (
+                        Math.pow(
+                            1 + monthlyRate,
+                            months
+                        ) - 1
+                    );
+
+
+                const totalPayment =
+                    emi * months;
+
+                const totalInterest =
+                    totalPayment - principal;
+
+
+                document.getElementById("emiAmount")
+                    .textContent =
+                    "₹" +
+                    Math.round(emi).toLocaleString("en-IN");
+
+
+                document.getElementById("totalPayment")
+                    .textContent =
+                    "Total Payment: ₹" +
+                    Math.round(totalPayment)
+                        .toLocaleString("en-IN");
+
+
+                document.getElementById("totalInterest")
+                    .textContent =
+                    "Total Interest: ₹" +
+                    Math.round(totalInterest)
+                        .toLocaleString("en-IN");
+
+
+                document.getElementById("emiResult")
+                    .style.display = "block";
+
+            });
+
+    </script>
+
+</body>
+
+</html>

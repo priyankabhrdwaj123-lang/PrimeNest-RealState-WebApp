@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Property Details | PrimeNest</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="../css/style.css">
+
+</head>
+
+
+<body>
+
+
+
+
+    <div id="navbar"></div>
+
+    <!-- ================= PROPERTY DETAIL ================= -->
+
+    <main class="property-detail-page">
+
+
+        <!-- Breadcrumb -->
+
+        <section class="property-breadcrumb">
+
+            <div class="container">
+
+                <a href="index.html">
+                    Home
+                </a>
+
+                <span> / </span>
+
+                <a href="properties.html">
+                    Properties
+                </a>
+
+                <span> / </span>
+
+                <strong>
+                    Property Details
+                </strong>
+
+            </div>
+
+        </section>
+
+
+        <!-- Property -->
+
+        <section class="property-detail-section">
+
+            <div class="container">
+
+                <div id="propertyDetail" class="property-detail">
+
+                    <!-- JavaScript will render property -->
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+    <!-- ================= CTA ================= -->
+
+    <section class="cta-section">
+
+        <div class="container">
+
+            <div class="cta-box">
+
+                <div>
+
+                    <span class="section-label">
+                        FIND YOUR NEXT HOME
+                    </span>
+
+                    <h2>
+                        Ready to find your place?
+                    </h2>
+
+                    <p>
+                        Explore more properties or connect
+                        with our property team.
+                    </p>
+
+                </div>
+
+
+                <a href="properties.html" class="btn btn-light">
+
+                    Explore Properties
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer class="footer">
+
+        <div class="container">
+
+            <div class="footer-grid">
+
+
+                <div class="footer-brand">
+
+                    <a href="index.html" class="logo">
+                        <span>Prime</span>Nest
+                    </a>
+
+                    <p>
+                        Discover better places to live,
+                        work and invest across Delhi NCR.
+                    </p>
+
+                </div>
+
+
+                <div class="footer-column">
+
+                    <h4>
+                        Explore
+                    </h4>
+
+                    <a href="properties.html">
+                        Properties
+                    </a>
+
+                    <a href="favourites.html">
+                        Favorites
+                    </a>
+
+                    <a href="compare.html">
+                        Compare
+                    </a>
+
+                </div>
+
+
+                <div class="footer-column">
+
+                    <h4>
+                        Locations
+                    </h4>
+
+                    <a href="properties.html?location=Delhi">
+                        Delhi
+                    </a>
+
+                    <a href="properties.html?location=Gurgaon">
+                        Gurgaon
+                    </a>
+
+                    <a href="properties.html?location=Noida">
+                        Noida
+                    </a>
+
+                </div>
+
+
+                <div class="footer-column">
+
+                    <h4>
+                        Tools
+                    </h4>
+
+                    <a href="calculator.html">
+                        EMI Calculator
+                    </a>
+
+                    <a href="compare.html">
+                        Compare Properties
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div class="footer-bottom">
+
+                <p>
+                    © 2026 PrimeNest. All rights reserved.
+                </p>
+
+                <p>
+                    Real Estate Platform Demo
+                </p>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+    <!-- ================= JAVASCRIPT ================= -->
+
+    <script src="../js/data.js"></script>
+    <script src="../js/app.js"></script>
+    <script src="../js/components.js"></script>
+
+
+    <script>
+
+        document.addEventListener(
+            "DOMContentLoaded",
+            function () {
+
+
+                const container =
+                    document.getElementById(
+                        "propertyDetail"
+                    );
+
+
+                const params =
+                    new URLSearchParams(
+                        window.location.search
+                    );
+
+
+                const id =
+                    Number(
+                        params.get("id")
+                    );
+
+
+                const property =
+                    properties.find(function (item) {
+
+                        return item.id === id;
+
+                    });
+
+
+                // Property not found
+
+                if (!property) {
+
+                    container.innerHTML = `
+
+                        <div class="empty-state">
+
+                            <div class="empty-icon">
+                                🏠
+                            </div>
+
+                            <h2>
+                                Property not found
+                            </h2>
+
+                            <p>
+                                The property you are looking
+                                for does not exist.
+                            </p>
+
+                            <a
+                                href="properties.html"
+                                class="btn btn-primary">
+
+                                Browse Properties
+
+                            </a>
+
+                        </div>
+
+                    `;
+
+                    return;
+
+                }
+
+
+                // Property detail
+
+                container.innerHTML = `
+
+                    <div class="property-detail-grid">
+
+
+                        <!-- IMAGE -->
+
+                        <div class="property-detail-image">
+
+                            <img
+                                src="${property.image}"
+                                alt="${property.title}">
+
+                            <span class="property-detail-status">
+                                ${property.status}
+                            </span>
+
+                        </div>
+
+
+                        <!-- INFORMATION -->
+
+                        <div class="property-detail-content">
+
+
+                            <div class="property-detail-top">
+
+                                <div>
+
+                                    <span class="property-type">
+                                        ${property.type}
+                                    </span>
+
+                                    <h1>
+                                        ${property.title}
+                                    </h1>
+
+                                    <p class="property-location">
+                                        📍 ${property.location}, India
+                                    </p>
+
+                                </div>
+
+
+                                <button
+                                    class="favorite-btn"
+                                    data-favorite="${property.id}"
+                                    type="button">
+
+                                    ♡
+
+                                </button>
+
+                            </div>
+
+
+                            <div class="property-detail-price">
+
+                                ${property.priceText}
+
+                            </div>
+
+
+                            <!-- SPECS -->
+
+                            <div class="property-specs">
+
+                                <div>
+
+                                    <strong>
+                                        ${property.bedrooms}
+                                    </strong>
+
+                                    <span>
+                                        Bedrooms
+                                    </span>
+
+                                </div>
+
+
+                                <div>
+
+                                    <strong>
+                                        ${property.bathrooms}
+                                    </strong>
+
+                                    <span>
+                                        Bathrooms
+                                    </span>
+
+                                </div>
+
+
+                                <div>
+
+                                    <strong>
+                                        ${property.area}
+                                    </strong>
+
+                                    <span>
+                                        Sq. Ft.
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+
+                            <!-- DESCRIPTION -->
+
+                            <div class="property-description">
+
+                                <h3>
+                                    About this property
+                                </h3>
+
+                                <p>
+                                    ${property.description}
+                                </p>
+
+                            </div>
+
+
+                            <!-- AMENITIES -->
+
+                            <div class="property-amenities">
+
+                                <h3>
+                                    Amenities
+                                </h3>
+
+                                <div class="amenities-list">
+
+                                    ${property.amenities
+                        .map(function (amenity) {
+
+                            return `
+                                                <span>
+                                                    ✓ ${amenity}
+                                                </span>
+                                            `;
+
+                        })
+                        .join("")}
+
+                                </div>
+
+                            </div>
+
+
+                            <!-- ACTIONS -->
+
+                            <div class="property-actions">
+
+                                <button
+                                    type="button"
+                                    class="btn btn-primary contact-agent"
+                                    data-property="${property.id}">
+
+                                    Contact Agent
+
+                                </button>
+
+
+                                <button
+                                    type="button"
+                                    class="btn btn-outline"
+                                    data-compare="${property.id}">
+
+                                    Compare
+
+                                </button>
+
+                            </div>
+
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- LOCATION -->
+
+                    <div class="property-location-section">
+
+                        <div>
+
+                            <span class="section-label">
+                                LOCATION
+                            </span>
+
+                            <h2>
+                                Property Location
+                            </h2>
+
+                            <p>
+                                ${property.location}, India
+                            </p>
+
+                        </div>
+
+
+                        <div class="property-map-placeholder">
+
+                            <div class="map-pin">
+                                📍
+                            </div>
+
+                            <strong>
+                                ${property.location}
+                            </strong>
+
+                            <span>
+                                PrimeNest Property Location
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                `;
+
+
+                // Favorite
+
+                const favoriteButton =
+                    document.querySelector(
+                        "[data-favorite]"
+                    );
+
+
+                if (
+                    favoriteButton &&
+                    typeof isFavorite === "function" &&
+                    isFavorite(property.id)
+                ) {
+
+                    favoriteButton.classList.add(
+                        "active"
+                    );
+
+                    favoriteButton.textContent = "♥";
+
+                }
+
+
+                if (favoriteButton) {
+
+                    favoriteButton.addEventListener(
+                        "click",
+                        function () {
+
+                            if (
+                                typeof toggleFavorite ===
+                                "function"
+                            ) {
+
+                                toggleFavorite(
+                                    property.id
+                                );
+
+                                if (
+                                    isFavorite(
+                                        property.id
+                                    )
+                                ) {
+
+                                    this.textContent = "♥";
+
+                                    this.classList.add(
+                                        "active"
+                                    );
+
+                                } else {
+
+                                    this.textContent = "♡";
+
+                                    this.classList.remove(
+                                        "active"
+                                    );
+
+                                }
+
+                            }
+
+                        }
+                    );
+
+                }
+
+
+                // Compare
+
+                const compareButton =
+                    document.querySelector(
+                        "[data-compare]"
+                    );
+
+
+                if (compareButton) {
+
+                    compareButton.addEventListener(
+                        "click",
+                        function () {
+
+                            if (
+                                typeof addCompare ===
+                                "function"
+                            ) {
+
+                                addCompare(
+                                    property.id
+                                );
+
+                            }
+
+                        }
+                    );
+
+                }
+
+
+                // Contact Agent
+
+                const contactButton =
+                    document.querySelector(
+                        ".contact-agent"
+                    );
+
+
+                if (contactButton) {
+
+                    contactButton.addEventListener(
+                        "click",
+                        function () {
+
+                            if (
+                                typeof showToast ===
+                                "function"
+                            ) {
+
+                                showToast(
+                                    "Agent enquiry feature will be connected in the backend phase."
+                                );
+
+                            } else {
+
+                                alert(
+                                    "Agent enquiry feature coming soon."
+                                );
+
+                            }
+
+                        }
+                    );
+
+                }
+
+            }
+
+        );
+
+    </script>
+
+
+</body>
+
+</html>
