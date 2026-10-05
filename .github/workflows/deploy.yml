@@ -1,0 +1,64 @@
+name: Deploy PrimeNest to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Prepare website
+        run: |
+          mkdir -p site/pages
+          mkdir -p site/css
+          mkdir -p site/js
+          mkdir -p site/images
+          mkdir -p site/components
+
+          cp -R frontend/pages/. site/pages/
+          cp -R frontend/css/. site/css/
+          cp -R frontend/js/. site/js/
+          cp -R frontend/images/. site/images/
+          cp -R frontend/components/. site/components/
+
+          cat > site/index.html <<'EOF'
+          <!DOCTYPE html>
+          <html>
+          <head>
+              <meta charset="UTF-8">
+              <meta http-equiv="refresh" content="0; url=pages/index.html">
+              <title>PrimeNest</title>
+          </head>
+          <body>
+              <p>Redirecting to PrimeNest...</p>
+              <script>
+                  window.location.replace("pages/index.html");
+              </script>
+          </body>
+          </html>
+          EOF
+
+      - name: Upload website
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./site
+
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v4
